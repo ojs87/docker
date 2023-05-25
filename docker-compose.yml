@@ -1,0 +1,16 @@
+services:
+  php74:
+    image: "ghcr.io/ojs87/php74:latest"
+    ports:
+      - "80:80"
+    volumes:
+      - "/workstation/projects:/var/www/html"
+    container_name: php74
+
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+    MARIADB_ROOT_PASSWORD: $MARIADB_PASSWD
+    container_name: mariadb
+
